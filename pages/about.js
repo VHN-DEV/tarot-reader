@@ -33,7 +33,7 @@ export default function About() {
                   <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-[#D4AF37]">
                     <Image
                       src="/avatar.jpeg"
-                      alt="Khoa Nguyễn"
+                      alt="Nam"
                       fill
                       className="object-cover"
                       sizes="(max-width: 640px) 128px, 160px"
@@ -41,7 +41,7 @@ export default function About() {
                   </div>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-serif text-[#D4AF37] mb-4">
-                  Khoa Nguyễn
+                  Nam
                 </h2>
                 <p className="text-white/70 text-lg sm:text-xl mb-2">
                   <span className="text-[#d5a052]">@</span>vhn
@@ -69,11 +69,11 @@ export default function About() {
             </div>
               <div className="space-y-6 text-white/80 text-base sm:text-lg leading-relaxed">
                 <p>
-                  Chào mừng bạn đến với <span className="text-[#D4AF37] font-semibold">Tarot Reader</span> - một dự án được phát triển nhanh làm Pet Project của Khoa Nguyễn.
+                  Chào mừng bạn đến với <span className="text-[#D4AF37] font-semibold">Tarot Reader</span> - một dự án được phát triển nhanh làm Pet Project của Nam.
                 </p>
                 
                 <p>
-                  Tớ là <span className="text-[#D4AF37]">Khoa Nguyễn</span>, một React/Nextjs Developer nho nhỏ. Dự án này được xây dựng bằng <span className="text-[#d5a052]">Next.js</span>, kết hợp với <span className="text-[#d5a052]">HeroUI</span> và <span className="text-[#d5a052]">Tailwind CSS</span> để mang đến một trải nghiệm bói bài Tarot trực tuyến hoàn toàn miễn phí.
+                  Tớ là <span className="text-[#D4AF37]">Nam</span>, một React/Nextjs Developer nho nhỏ. Dự án này được xây dựng bằng <span className="text-[#d5a052]">Next.js</span>, kết hợp với <span className="text-[#d5a052]">HeroUI</span> và <span className="text-[#d5a052]">Tailwind CSS</span> để mang đến một trải nghiệm bói bài Tarot trực tuyến hoàn toàn miễn phí.
                 </p>
 
                 <p>

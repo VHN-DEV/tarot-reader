@@ -458,7 +458,7 @@ MIT License - feel free to use this project for personal or commercial purposes.
 
 ## Author
 
-**Khoa Nguyễn (VHN-DEV)**
+**Nam (VHN-DEV)**
 
 - Website: [https://VHN-DEV.dev](https://VHN-DEV.dev)
 - GitHub: [https://github.com/VHN-DEV](https://github.com/VHN-DEV)
