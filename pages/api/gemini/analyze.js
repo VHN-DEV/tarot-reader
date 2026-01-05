@@ -148,7 +148,7 @@ CẤU TRÚC:
 - Khoảng 3-4 dòng
 
 **Bói toán bởi**
-_Hệ thống AI tiên tri Tarot của yunkhngn_
+_Hệ thống AI tiên tri Tarot của vhn_
 Hãy viết ngắn gọn, súc tích, có xuống dòng ở các đầu mục, sử dụng markdown để làm nổi bật các phần quan trọng.`;
 
     const result = await model.generateContent(prompt);

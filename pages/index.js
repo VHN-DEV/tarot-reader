@@ -27,7 +27,7 @@ export default function Home() {
               <div className="text-center lg:text-left max-w-2xl">
                 <p className="tracking-[0.5em] text-xs sm:text-sm md:text-base text-[#d5a052] uppercase mb-4 sm:mb-6">Tarot Reader</p>
                 <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-serif text-[#D4AF37] mb-4 sm:mb-6">
-                  TAROT.YUNKHNGN.DEV
+                  TAROT.VHN.DEV
                 </h1>
                 <p className="text-white/80 text-sm sm:text-base md:text-base lg:text-base xl:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-10">
                   Chào mừng bạn đến với Tarot Reader - nơi bạn có thể bói bài Tarot miễn phí trực tuyến. 
@@ -99,7 +99,7 @@ export default function Home() {
               CÁC CHỦ ĐỀ BÓI BÀI TAROT
             </h2>
             <p className="text-white/70 text-center text-base sm:text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
-              tarot.yunkhngn.dev mang đến trải nghiệm bói bài Tarot toàn diện với sự đa dạng về chủ đề, đáp ứng mọi khía cạnh trong cuộc sống. Từ tình yêu, sự nghiệp, tài chính, sức khỏe, đến các vấn đề về gia đình hay tinh thần cá nhân, mỗi trải bài đều được cá nhân hóa để giải đáp thắc mắc và định hướng chính xác nhất. Với đội ngũ chuyên gia giàu kinh nghiệm, tarot.yunkhngn.dev là nơi bạn có thể tìm thấy câu trả lời và sự cân bằng cho mọi giai đoạn của hành trình cuộc sống.
+              tarot.vhn.dev mang đến trải nghiệm bói bài Tarot toàn diện với sự đa dạng về chủ đề, đáp ứng mọi khía cạnh trong cuộc sống. Từ tình yêu, sự nghiệp, tài chính, sức khỏe, đến các vấn đề về gia đình hay tinh thần cá nhân, mỗi trải bài đều được cá nhân hóa để giải đáp thắc mắc và định hướng chính xác nhất. Với đội ngũ chuyên gia giàu kinh nghiệm, tarot.vhn.dev là nơi bạn có thể tìm thấy câu trả lời và sự cân bằng cho mọi giai đoạn của hành trình cuộc sống.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
@@ -173,10 +173,10 @@ export default function Home() {
               </div>
               <div>
                 <h2 className="text-3xl sm:text-4xl font-serif text-[#D4AF37] mb-6">
-                  LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ BÓI BÀI TAROT ONLINE TẠI TAROT.YUNKHNGN.DEV
+                  LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ BÓI BÀI TAROT ONLINE TẠI TAROT.VHN.DEV
                 </h2>
                 <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-6">
-                  Sử dụng dịch vụ bói bài Tarot tại tarot.yunkhngn.dev mang đến trải nghiệm nhanh chóng, tiện lợi và chuyên nghiệp. Nền tảng của chúng tôi cung cấp dịch vụ bói bài cá nhân hóa, cho phép đặt câu hỏi cho tất cả khía cạnh trong cuộc sống của bạn. Đặc biệt, tarot.yunkhngn.dev hỗ trợ trải bài hoàn toàn miễn phí, giúp bạn dễ dàng giải đáp mọi thắc mắc chỉ trong vài phút mà không cần rời khỏi nhà. Nếu bạn đang tìm kiếm một nơi uy tín để nhận được những lời khuyên chất lượng, đây chính là lựa chọn lý tưởng dành cho bạn!
+                  Sử dụng dịch vụ bói bài Tarot tại tarot.vhn.dev mang đến trải nghiệm nhanh chóng, tiện lợi và chuyên nghiệp. Nền tảng của chúng tôi cung cấp dịch vụ bói bài cá nhân hóa, cho phép đặt câu hỏi cho tất cả khía cạnh trong cuộc sống của bạn. Đặc biệt, tarot.vhn.dev hỗ trợ trải bài hoàn toàn miễn phí, giúp bạn dễ dàng giải đáp mọi thắc mắc chỉ trong vài phút mà không cần rời khỏi nhà. Nếu bạn đang tìm kiếm một nơi uy tín để nhận được những lời khuyên chất lượng, đây chính là lựa chọn lý tưởng dành cho bạn!
                 </p>
                 <Button
                   className="bg-white text-black hover:bg-gray-200 font-semibold text-base rounded-none border-2 border-black"
@@ -205,19 +205,19 @@ export default function Home() {
                 },
                 {
                   question: 'BÓI BÀI TAROT CÓ MẤT PHÍ KHÔNG?',
-                  answer: 'Không, dịch vụ bói bài Tarot tại tarot.yunkhngn.dev hoàn toàn miễn phí. Bạn có thể sử dụng không giới hạn số lần trải bài.'
+                  answer: 'Không, dịch vụ bói bài Tarot tại tarot.vhn.dev hoàn toàn miễn phí. Bạn có thể sử dụng không giới hạn số lần trải bài.'
                 },
                 {
                   question: 'TÔI CÓ THỂ HỎI NHIỀU CÂU HỎI CHO TRẢI BÀI KHÔNG?',
                   answer: 'Mỗi trải bài được thiết kế để trả lời một câu hỏi cụ thể. Tuy nhiên, bạn có thể thực hiện nhiều trải bài khác nhau để giải đáp các câu hỏi khác nhau của mình.'
                 },
                 {
-                  question: 'LỜI GIẢI BÀI TAROT TẠI TAROT.YUNKHNGN.DEV CHÍNH XÁC ĐẾN MỨC NÀO?',
+                  question: 'LỜI GIẢI BÀI TAROT TẠI TAROT.VHN.DEV CHÍNH XÁC ĐẾN MỨC NÀO?',
                   answer: 'Chúng tôi sử dụng AI tiên tiến (Google Gemini) để phân tích các lá bài dựa trên ý nghĩa truyền thống của Tarot. Độ chính xác phụ thuộc vào cách bạn đặt câu hỏi và cách bạn áp dụng lời khuyên vào cuộc sống của mình.'
                 },
                 {
-                  question: 'TÔI CÓ THỂ LIÊN HỆ TAROT.YUNKHNGN.DEV Ở ĐÂU?',
-                  answer: 'Bạn có thể liên hệ với tôi qua các kênh thông tin được cung cấp trong phần Footer của website hoặc là qua email yunkhngn.mail@gmail.com'
+                  question: 'TÔI CÓ THỂ LIÊN HỆ TAROT.VHN.DEV Ở ĐÂU?',
+                  answer: 'Bạn có thể liên hệ với tôi qua các kênh thông tin được cung cấp trong phần Footer của website hoặc là qua email vhn.mail@gmail.com'
                 }
               ].map((faq, index) => (
                 <FAQItem key={index} question={faq.question} answer={faq.answer} />

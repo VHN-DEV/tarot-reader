@@ -12,7 +12,7 @@ export default function About() {
     <>
       <Metadata 
         title="About - Tarot Reader"
-        description="About the developer of Tarot Reader - Khoa Nguyễn (yunkhngn)"
+        description="About the developer of Tarot Reader - Nam (vhn)"
         image="/tarot.jpeg"
       />
       <div className="min-h-screen bg-[#0b0a0a] flex flex-col">
@@ -44,13 +44,13 @@ export default function About() {
                   Khoa Nguyễn
                 </h2>
                 <p className="text-white/70 text-lg sm:text-xl mb-2">
-                  <span className="text-[#d5a052]">@</span>yunkhngn
+                  <span className="text-[#d5a052]">@</span>vhn
                 </p>
               </div>
               <div className="mb-8 text-center">
               <Button
                 as="a"
-                href="https://yunkhngn.dev"
+                href="https://vhn.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 font-semibold text-base sm:text-lg py-6 rounded-none transition-all duration-200"
@@ -84,7 +84,7 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <Button
                 as="a"
-                href="https://github.com/yunkhngn/tarot-reader"
+                href="https://github.com/VHN-DEV/tarot-reader"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 font-semibold text-base sm:text-lg py-6 rounded-none transition-all duration-200"
@@ -102,7 +102,7 @@ export default function About() {
 
               <Button
                 as="a"
-                href="https://github.com/yunkhngn"
+                href="https://github.com/VHN-DEV"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 font-semibold text-base sm:text-lg py-6 rounded-none transition-all duration-200"
