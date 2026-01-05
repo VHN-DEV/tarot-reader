@@ -107,7 +107,7 @@ export default async function handler(req, res) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-pro' });
+    const model = genAI.getGenerativeModel({ model: process.env.GEMINI_MODEL || 'gemini-1.0-pro' });
 
     const cardDescriptions = cards.map((card, index) => {
       const positions = ['Quá khứ', 'Hiện tại', 'Tương lai'];
