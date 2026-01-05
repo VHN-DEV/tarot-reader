@@ -16,7 +16,7 @@ export default function ApiDocs() {
         <div className="container mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 max-w-4xl flex-1">
           <div className="mb-8">
             <p className="tracking-[0.5em] text-xs text-[#d5a052] uppercase mb-4 text-center">API Documentation</p>
-            <h1 className="text-3xl sm:text-4xl font-serif text-[#D4AF37] mb-4 text-center">
+            <h1 className="text-3xl sm:text-4xl text-[#D4AF37] mb-4 text-center">
               API Endpoints
             </h1>
             <p className="text-white/70 text-center text-base sm:text-lg leading-relaxed mb-8">
@@ -123,7 +123,7 @@ export default function ApiDocs() {
           </div>
 
           <div className="mt-12 bg-[#111010] border border-[#2a1f17] rounded-2xl p-6 sm:p-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)]">
-            <h2 className="text-xl sm:text-2xl font-serif text-[#D4AF37] mb-4">Response Format</h2>
+            <h2 className="text-xl sm:text-2xl text-[#D4AF37] mb-4">Response Format</h2>
             
             <div className="mb-6">
               <p className="text-white/70 text-sm sm:text-base mb-3">

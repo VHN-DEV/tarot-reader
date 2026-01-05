@@ -22,7 +22,7 @@ export default function About() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
             <div className="text-center mb-12">
               <p className="tracking-[0.5em] text-xs sm:text-sm text-[#d5a052] uppercase mb-4">About</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#D4AF37] mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#D4AF37] mb-6">
                 VỀ NHÀ PHÁT TRIỂN
               </h1>
             </div>
@@ -40,7 +40,7 @@ export default function About() {
                     />
                   </div>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif text-[#D4AF37] mb-4">
+                <h2 className="text-2xl sm:text-3xl text-[#D4AF37] mb-4">
                   Nam
                 </h2>
                 <p className="text-white/70 text-lg sm:text-xl mb-2">

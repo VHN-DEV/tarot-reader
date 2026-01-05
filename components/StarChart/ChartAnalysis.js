@@ -70,7 +70,7 @@ function CareerTag({ field, score }) {
  */
 function SectionHeader({ title, icon }) {
   return (
-    <h3 className="text-xl font-serif text-[#D4AF37] mb-4 flex items-center gap-2">
+    <h3 className="text-xl text-[#D4AF37] mb-4 flex items-center gap-2">
       <span>{icon}</span>
       <span>{title}</span>
     </h3>
@@ -103,7 +103,7 @@ export default function ChartAnalysis({ chartData }) {
     <div className="mt-12 space-y-8">
       {/* Section Title */}
       <div className="text-center">
-        <h2 className="text-2xl sm:text-3xl font-serif text-[#D4AF37] mb-2">
+        <h2 className="text-2xl sm:text-3xl text-[#D4AF37] mb-2">
           PHÂN TÍCH BẢN ĐỒ SAO
         </h2>
         <p className="text-white/50 text-sm">

@@ -71,7 +71,7 @@ export default function Quotes() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl w-full">
             <div className="text-center mb-8 sm:mb-12">
               <p className="tracking-[0.5em] text-xs sm:text-sm text-[#d5a052] uppercase mb-4">Quote of the Day</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#D4AF37] mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#D4AF37] mb-4">
                 CÂU NÓI HÔM NAY
               </h1>
               {quote && (
@@ -106,7 +106,7 @@ export default function Quotes() {
                       </span>
                     </div>
                     
-                    <blockquote className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-relaxed mb-8 italic">
+                    <blockquote className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed mb-8 italic">
                       "{quote.quote}"
                     </blockquote>
                     

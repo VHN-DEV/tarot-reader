@@ -53,7 +53,7 @@ export default function Book3D({ state, answer, onBookClick }) {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="relative z-10"
             >
-              <h2 className="text-2xl sm:text-3xl font-serif text-[#1a1a1a] leading-relaxed font-bold">
+              <h2 className="text-2xl sm:text-3xl text-[#1a1a1a] leading-relaxed font-bold">
                 {answer}
               </h2>
               <div className="mt-8 w-16 h-[1px] bg-[#1a1a1a]/20 mx-auto" />
@@ -90,7 +90,7 @@ export default function Book3D({ state, answer, onBookClick }) {
             }}
           >
             <div className="border border-[#c08b45]/50 w-full h-full flex flex-col items-center justify-center p-4">
-              <h1 className="text-[#c08b45] font-serif text-3xl sm:text-4xl mb-2 tracking-widest drop-shadow-md">
+              <h1 className="text-[#c08b45] text-3xl sm:text-4xl mb-2 tracking-widest drop-shadow-md">
                 THE BOOK
               </h1>
               <p className="text-[#888] text-xs tracking-[0.4em] uppercase">

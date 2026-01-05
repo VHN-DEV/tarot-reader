@@ -63,7 +63,7 @@ export default function Library() {
             <p className="text-center text-xs md:text-sm tracking-[0.5em] text-[#c08b45] uppercase mb-4">
               Library
             </p>
-            <h1 className="text-2xl sm:text-4xl font-serif text-[#f5f0e5] text-center mb-4">
+            <h1 className="text-2xl sm:text-4xl text-[#f5f0e5] text-center mb-4">
               Library Bài Tarot
             </h1>
             <p className="text-white/70 text-center max-w-2xl mx-auto text-sm sm:text-base leading-relaxed mb-6">
@@ -233,7 +233,7 @@ export default function Library() {
               </button>
               
               <div className="flex-1 overflow-y-auto px-6 sm:px-8 lg:px-10 pt-16 pb-6 sm:pb-8 lg:pb-10 scrollbar-hide">
-                <h2 className="text-3xl sm:text-4xl font-serif text-[#c8a05e] mb-8 lg:mb-10 text-center lg:text-left">
+                <h2 className="text-3xl sm:text-4xl text-[#c8a05e] mb-8 lg:mb-10 text-center lg:text-left">
                   {selectedCard.name}
                 </h2>
                 

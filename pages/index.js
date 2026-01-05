@@ -26,7 +26,7 @@ export default function Home() {
             <div className="flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16">
               <div className="text-center lg:text-left max-w-2xl">
                 <p className="tracking-[0.5em] text-xs sm:text-sm md:text-base text-[#d5a052] uppercase mb-4 sm:mb-6">Tarot Reader</p>
-                <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-serif text-[#D4AF37] mb-4 sm:mb-6">
+                <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl text-[#D4AF37] mb-4 sm:mb-6">
                   TAROT.VHN.DEV
                 </h1>
                 <p className="text-white/80 text-sm sm:text-base md:text-base lg:text-base xl:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-10">
@@ -63,7 +63,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <div className="grid gap-8 lg:gap-12 items-center lg:grid-cols-2">
               <div className="order-2 lg:order-1">
-                <h2 className="text-3xl sm:text-4xl font-serif text-[#D4AF37] mb-6">
+                <h2 className="text-3xl sm:text-4xl text-[#D4AF37] mb-6">
                   TAROT LÀ GÌ?
                 </h2>
                 <p className="text-white/80 text-base sm:text-lg leading-relaxed">
@@ -95,7 +95,7 @@ export default function Home() {
         {/* CÁC CHỦ ĐỀ BÓI BÀI TAROT Section - Full Width */}
         <div className="w-full border-b border-white/10 py-12 sm:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#D4AF37] mb-4 text-center">
+            <h2 className="text-3xl sm:text-4xl text-[#D4AF37] mb-4 text-center">
               CÁC CHỦ ĐỀ BÓI BÀI TAROT
             </h2>
             <p className="text-white/70 text-center text-base sm:text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
@@ -140,7 +140,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex flex-col flex-1 w-full max-w-sm mx-auto">
-                    <h3 className="text-xl font-serif text-[#D4AF37] mb-3 font-bold">{theme.title}</h3>
+                    <h3 className="text-xl text-[#D4AF37] mb-3 font-bold">{theme.title}</h3>
                     <p className="text-white/80 text-sm leading-relaxed mb-6 flex-1">{theme.description}</p>
                     <Button
                       className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-semibold text-sm rounded-none w-full mt-auto"
@@ -172,7 +172,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-serif text-[#D4AF37] mb-6">
+                <h2 className="text-3xl sm:text-4xl text-[#D4AF37] mb-6">
                   LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ BÓI BÀI TAROT ONLINE TẠI TAROT.VHN.DEV
                 </h2>
                 <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-6">
@@ -193,7 +193,7 @@ export default function Home() {
         {/* FAQ Section - Full Width */}
         <div className="w-full border-b border-white/10 py-12 sm:py-16 mb-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#D4AF37] mb-12 text-center">
+            <h2 className="text-3xl sm:text-4xl text-[#D4AF37] mb-12 text-center">
               CÂU HỎI THƯỜNG GẶP
             </h2>
             

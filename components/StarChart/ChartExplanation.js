@@ -92,7 +92,7 @@ export default function ChartExplanation() {
   
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl sm:text-3xl font-serif text-[#D4AF37] mb-6 text-center">
+      <h2 className="text-2xl sm:text-3xl text-[#D4AF37] mb-6 text-center">
         GIẢI THÍCH KHÁI NIỆM
       </h2>
       

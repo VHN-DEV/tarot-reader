@@ -10,7 +10,7 @@ export default function ChartInfo({ chartData }) {
   
   return (
     <div className="bg-[#111010] border-2 border-white/20 rounded-lg p-6 space-y-6">
-      <h3 className="text-xl font-serif text-[#D4AF37] mb-4">
+      <h3 className="text-xl text-[#D4AF37] mb-4">
         DỮ LIỆU TÍNH TOÁN
       </h3>
       

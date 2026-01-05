@@ -120,7 +120,7 @@ export default function BookOfAnswers() {
               className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
             >
               <div className="bg-[#1a1a1a] border border-[#333] max-w-lg w-full rounded-2xl p-6 sm:p-10 shadow-2xl relative max-h-[85vh] overflow-y-auto scrollbar-hide">
-                <h2 className="text-xl sm:text-3xl font-serif text-[#f5f0e5] text-center mb-6 sm:mb-10 tracking-wide uppercase sticky top-0 bg-[#1a1a1a] py-2 z-10">
+                <h2 className="text-xl sm:text-3xl text-[#f5f0e5] text-center mb-6 sm:mb-10 tracking-wide uppercase sticky top-0 bg-[#1a1a1a] py-2 z-10">
                   Hướng Dẫn <br/> Sử Dụng Cuốn Sách
                 </h2>
                 

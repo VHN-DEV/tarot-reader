@@ -118,7 +118,7 @@ export default function StarChartPage() {
               <p className="tracking-[0.5em] text-xs sm:text-sm text-[#d5a052] uppercase mb-4">
                 Computational Astronomy
               </p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#D4AF37] mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#D4AF37] mb-4">
                 BẢN ĐỒ SAO CƠ HỌC
               </h1>
               <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto">
@@ -136,7 +136,7 @@ export default function StarChartPage() {
             
             {/* Form Section - Compact on top */}
             <div className="bg-[#111010] border-2 border-white/20 rounded-lg p-6 sm:p-8 mb-8">
-              <h2 className="text-xl font-serif text-[#D4AF37] mb-6 text-center">
+              <h2 className="text-xl text-[#D4AF37] mb-6 text-center">
                 THÔNG TIN ĐẦU VÀO
               </h2>
               <ChartForm onGenerate={handleGenerate} isLoading={isLoading} />

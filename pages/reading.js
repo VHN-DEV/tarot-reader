@@ -359,7 +359,7 @@ export default function Reading() {
             <p className="text-center text-xs md:text-sm tracking-[0.5em] text-[#c08b45] uppercase mb-4">
               ĐẶT CÂU HỎI
             </p>
-            <h1 className="text-2xl sm:text-4xl font-serif text-[#f5f0e5] text-center mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-4xl text-[#f5f0e5] text-center mb-6 sm:mb-8">
               ĐẶT CÂU HỎI CHO <br/>
               TRẢI BÀI TAROT
             </h1>
@@ -449,7 +449,7 @@ export default function Reading() {
                 <p className="text-center text-xs md:text-sm tracking-[0.5em] text-[#c08b45] uppercase mb-4">
                   Bước 2
                 </p>
-                <h1 className="text-2xl sm:text-4xl font-serif text-[#f5f0e5] text-center mb-4">
+                <h1 className="text-2xl sm:text-4xl text-[#f5f0e5] text-center mb-4">
                   Chọn 3 lá bài bạn cảm thấy kết nối nhất
                 </h1>
                 <p className="text-white/70 text-center max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
@@ -632,7 +632,7 @@ export default function Reading() {
             ref={analysisRef}
             className="bg-[#2a2a2a] border border-gray-700 rounded-lg p-6 sm:p-8 mb-8"
           >
-            <h2 className="text-3xl font-serif text-[#D4AF37] mb-6 text-center">
+            <h2 className="text-3xl text-[#D4AF37] mb-6 text-center">
               Thông điệp Tarot
             </h2>
             <div 
@@ -686,7 +686,7 @@ export default function Reading() {
               </button>
               
               <div className="flex-1 overflow-y-auto px-6 sm:px-8 lg:px-10 pt-16 pb-6 sm:pb-8 lg:pb-10 scrollbar-hide">
-                <h2 className="text-3xl sm:text-4xl font-serif text-[#c8a05e] mb-8 lg:mb-10 text-center lg:text-left">
+                <h2 className="text-3xl sm:text-4xl text-[#c8a05e] mb-8 lg:mb-10 text-center lg:text-left">
                   {selectedCard.name}
                 </h2>
                 
