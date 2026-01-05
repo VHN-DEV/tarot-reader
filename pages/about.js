@@ -120,7 +120,7 @@ export default function About() {
 
               <Button
                 as="a"
-                href="https://www.facebook.com/yun.khngn/"
+                href="https://www.facebook.com/vhn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 font-semibold text-base sm:text-lg py-6 rounded-none transition-all duration-200"
@@ -138,7 +138,7 @@ export default function About() {
 
               <Button
                 as="a"
-                href="https://www.instagram.com/yun.khngn/"
+                href="https://www.instagram.com/vhn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 font-semibold text-base sm:text-lg py-6 rounded-none transition-all duration-200"
