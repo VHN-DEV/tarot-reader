@@ -110,7 +110,7 @@ export default async function handler(req, res) {
     // const genAI = new GoogleGenerativeAI(apiKey);
     // const model = genAI.getGenerativeModel({ model: process.env.GEMINI_MODEL || 'gemini-1.0-pro' });
     const client = new GoogleGenAI({ apiKey: apiKey });
-    const modelName = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+    const modelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
     const cardDescriptions = cards.map((card, index) => {
       const positions = ['Quá khứ', 'Hiện tại', 'Tương lai'];
