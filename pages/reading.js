@@ -41,6 +41,7 @@ export default function Reading() {
   const [hCaptchaToken, setHCaptchaToken] = useState(null);
   const [hCaptchaSiteKey, setHCaptchaSiteKey] = useState(null);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
+  const [selectedCard, setSelectedCard] = useState(null);
   const analysisRef = useRef(null);
   const rowRef = useRef(null);
   const hCaptchaRef = useRef(null);
@@ -544,7 +545,7 @@ export default function Reading() {
             </h2>
             <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-6">
               {selectedCards.map((card, index) => (
-                <div key={`${card.name}-selected-${index}`} className="w-48 sm:w-56 md:w-64">
+                <div key={`${card.name}-selected-${index}`} className="w-48 sm:w-56 md:w-64 cursor-pointer" onClick={() => setSelectedCard(card)}>
                   <div className="relative overflow-hidden rounded-xl border border-[#2f2f32] shadow-[0_15px_45px_rgba(0,0,0,0.45)] mb-3" style={{ aspectRatio: '3 / 5' }}>
                     <Image 
                       src={card.image} 
@@ -658,6 +659,63 @@ export default function Reading() {
               >
                 {analysis}
               </ReactMarkdown>
+            </div>
+          </div>
+        )}
+
+        {/* Modal for selected card */}
+        {selectedCard && (
+          <div 
+            className="fixed inset-0 bg-black/85 backdrop-blur-sm flex items-center justify-center z-50 p-4 md:p-6"
+            onClick={() => setSelectedCard(null)}
+          >
+            <div 
+              className="relative bg-[#1b1918] border border-[#453628] rounded-[32px] shadow-[0_35px_120px_rgba(0,0,0,0.7)] max-w-4xl w-full h-[95vh] flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="absolute top-4 left-6 z-10">
+                <span className="text-xs uppercase tracking-[0.35em] text-[#c08b45] bg-white/10 px-3 py-1 rounded-full">
+                  {selectedCard.name}
+                </span>
+              </div>
+              <button
+                onClick={() => setSelectedCard(null)}
+                className="absolute top-4 right-6 z-10 text-white/70 hover:text-white text-3xl leading-none"
+              >
+                ×
+              </button>
+              
+              <div className="flex-1 overflow-y-auto px-6 sm:px-8 lg:px-10 pt-16 pb-6 sm:pb-8 lg:pb-10 scrollbar-hide">
+                <h2 className="text-3xl sm:text-4xl font-serif text-[#c8a05e] mb-8 lg:mb-10 text-center lg:text-left">
+                  {selectedCard.name}
+                </h2>
+                
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+                  {/* Image Section */}
+                  <div className="flex-shrink-0 lg:w-1/2 flex justify-center lg:justify-start">
+                    <div className="relative w-full max-w-[350px] rounded-2xl overflow-hidden border border-[#2f2620] shadow-[0_25px_70px_rgba(0,0,0,0.45)] bg-[#0f0e0d]" style={{ aspectRatio: '3 / 5' }}>
+                      <Image
+                        src={selectedCard.image}
+                        alt={selectedCard.name}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 1024px) 100vw, 350px"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Description Section */}
+                  <div className="flex-1 lg:w-1/2 lg:pt-2 flex flex-col">
+                    <div className="text-white/90 leading-relaxed whitespace-pre-line break-words text-base sm:text-lg font-light space-y-4 mb-6">
+                      {selectedCard.description.split('\n\n').map((paragraph, index) => (
+                        <p key={index} className="mb-4 last:mb-0">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
