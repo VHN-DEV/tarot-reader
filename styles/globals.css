@@ -1,0 +1,230 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+/* hoặc .js tuỳ file của mày */
+
+:root {
+  --heroui-background: 0 0% 4%;
+  --heroui-foreground: 0 0% 100%;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-mulish), 'Mulish', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #111;
+  color: #f5f5f5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+.font-mulish {
+  font-family: var(--font-mulish), 'Mulish', sans-serif;
+}
+
+.navbar-link {
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #f5f5f5;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.navbar-link .nav-star {
+  color: #d5a052 !important;
+  font-size: 0.9rem;
+}
+
+.navbar-link.inactive {
+  color: rgba(245, 245, 245, 0.65);
+}
+
+.navbar-link:hover {
+  color: #ffffff;
+}
+
+.markdown-content ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.tarot-row {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+.tarot-row:active {
+  cursor: grabbing;
+}
+
+.tarot-row * {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.tarot-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tarot-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tarot-row::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.tarot-card {
+  border-radius: 1.2rem;
+  perspective: 1200px;
+  position: relative;
+  opacity: 0;
+  animation: spreadIn 0.6s ease forwards;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tarot-card .card-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+}
+
+.tarot-card .card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1.2rem;
+}
+
+.tarot-card .card-back {
+  background: radial-gradient(circle at 30% 20%, #2f1d18, #120b0a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tarot-card .card-front {
+  transform: rotateY(180deg);
+}
+
+.tarot-card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.tarot-card:not(.disabled-card):hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+}
+
+.tarot-card.disabled-card {
+  cursor: default;
+  opacity: 0.85;
+}
+
+@keyframes spreadIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px) rotateZ(2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateZ(0);
+  }
+}
+
+.heroui-input-wrapper:focus-within,
+.heroui-textarea-wrapper:focus-within {
+  box-shadow: none !important;
+}
+
+.markdown-content ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Star Chart Form - Fix native input text colors */
+input[type="date"],
+input[type="time"],
+input[type="number"] {
+  color: #f5f5f5 !important;
+  color-scheme: dark;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Fix select/autocomplete dropdown text */
+[data-slot="input-wrapper"] input,
+[data-slot="trigger"] span {
+  color: #f5f5f5 !important;
+}
+
+/* Fix dropdown/select hover and focus states */
+[data-slot="trigger"]:hover,
+[data-slot="trigger"]:focus,
+[data-slot="trigger"][data-focus="true"],
+[data-slot="trigger"][data-open="true"],
+[data-slot="input-wrapper"]:hover,
+[data-slot="input-wrapper"]:focus-within {
+  background-color: #2a2520 !important;
+}
+
+/* Fix listbox items */
+[data-slot="listbox"] [data-slot="base"] {
+  color: #f5f5f5 !important;
+}
+
+[data-slot="listbox"] [data-slot="base"]:hover,
+[data-slot="listbox"] [data-slot="base"][data-hover="true"] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
