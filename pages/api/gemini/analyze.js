@@ -1,4 +1,5 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+// import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import { checkRateLimit } from '../../../utils/rateLimiter';
 
 export default async function handler(req, res) {
@@ -12,10 +13,10 @@ export default async function handler(req, res) {
   try {
     // Check origin/referer to prevent external API calls
     const origin = req.headers.origin || req.headers.referer || '';
-    const allowedOrigins = process.env.ALLOWED_ORIGINS 
+    const allowedOrigins = process.env.ALLOWED_ORIGINS
       ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim())
       : [];
-    
+
     // In production, check if origin is allowed
     const isProduction = process.env.NODE_ENV === 'production';
     if (isProduction && allowedOrigins.length > 0) {
@@ -29,27 +30,27 @@ export default async function handler(req, res) {
           return origin.includes(allowedOrigin);
         }
       });
-      
+
       if (!isAllowed) {
-        return res.status(403).json({ 
+        return res.status(403).json({
           error: 'Forbidden',
           message: 'This API endpoint is not accessible from external domains.'
         });
       }
     } else if (isProduction && !origin) {
       // In production, require origin/referer header
-      return res.status(403).json({ 
+      return res.status(403).json({
         error: 'Forbidden',
         message: 'Origin or Referer header is required.'
       });
     }
-    
+
     // Rate limiting check
-    const clientIp = req.headers['x-forwarded-for']?.split(',')[0] || 
-                     req.headers['x-real-ip'] || 
-                     req.socket.remoteAddress || 
-                     'unknown';
-    
+    const clientIp = req.headers['x-forwarded-for']?.split(',')[0] ||
+      req.headers['x-real-ip'] ||
+      req.socket.remoteAddress ||
+      'unknown';
+
     const rateLimitResult = checkRateLimit(clientIp);
     if (!rateLimitResult.allowed) {
       return res.status(429).json({
@@ -84,9 +85,9 @@ export default async function handler(req, res) {
         });
 
         const verifyData = await verifyResponse.json();
-        
+
         if (!verifyData.success) {
-          return res.status(400).json({ 
+          return res.status(400).json({
             error: 'hCaptcha verification failed',
             details: verifyData['error-codes'] || 'Invalid token'
           });
@@ -106,8 +107,10 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Gemini API key not configured' });
     }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: process.env.GEMINI_MODEL || 'gemini-1.0-pro' });
+    // const genAI = new GoogleGenerativeAI(apiKey);
+    // const model = genAI.getGenerativeModel({ model: process.env.GEMINI_MODEL || 'gemini-1.0-pro' });
+    const client = new GoogleGenAI({ apiKey: apiKey });
+    const modelName = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
 
     const cardDescriptions = cards.map((card, index) => {
       const positions = ['Quá khứ', 'Hiện tại', 'Tương lai'];
@@ -116,49 +119,54 @@ export default async function handler(req, res) {
 
     const prompt = `Bạn là một thầy bói Tarot chuyên nghiệp. Hãy phân tích câu hỏi của người dùng dựa trên 3 lá bài Tarot được rút ra.
 
-Câu hỏi của người dùng: "${question}"
+      Câu hỏi của người dùng: "${question}"
 
-Ba lá bài Tarot:
-${cardDescriptions}
+      Ba lá bài Tarot:
+      ${cardDescriptions}
 
-YÊU CẦU FORMAT MARKDOWN:
-- Viết bằng tiếng Việt, giọng điệu ấm áp, chân thành
-- Sử dụng markdown: **in đậm** cho tiêu đề quan trọng, *in nghiêng* cho nhấn mạnh, - gạch đầu dòng cho danh sách
-- Chỉ viết ĐÚNG 4 đoạn, mỗi đoạn khoảng 3-4 dòng
-- Format rõ ràng, dễ đọc với markdown
+      YÊU CẦU FORMAT MARKDOWN:
+      - Viết bằng tiếng Việt, giọng điệu ấm áp, chân thành
+      - Sử dụng markdown: **in đậm** cho tiêu đề quan trọng, *in nghiêng* cho nhấn mạnh, - gạch đầu dòng cho danh sách
+      - Chỉ viết ĐÚNG 4 đoạn, mỗi đoạn khoảng 3-4 dòng
+      - Format rõ ràng, dễ đọc với markdown
 
-CẤU TRÚC:
-**1. Ý nghĩa tổng quan:**
-- Phân tích ngắn gọn về 3 lá bài trong bối cảnh câu hỏi
-- Sử dụng **in đậm** cho tên lá bài quan trọng
-- Khoảng 3-4 dòng
+      CẤU TRÚC:
+      **1. Ý nghĩa tổng quan:**
+      - Phân tích ngắn gọn về 3 lá bài trong bối cảnh câu hỏi
+      - Sử dụng **in đậm** cho tên lá bài quan trọng
+      - Khoảng 3-4 dòng
 
-**2. Mối liên hệ:**
-- Giải thích mối liên hệ giữa quá khứ, hiện tại và tương lai
-- Sử dụng *in nghiêng* để nhấn mạnh điểm quan trọng
-- Khoảng 3-4 dòng
+      **2. Mối liên hệ:**
+      - Giải thích mối liên hệ giữa quá khứ, hiện tại và tương lai
+      - Sử dụng *in nghiêng* để nhấn mạnh điểm quan trọng
+      - Khoảng 3-4 dòng
 
-**3.: Lời khuyên:**
-- Đưa ra lời khuyên cụ thể dựa trên kết quả
-- Sử dụng gạch đầu dòng (-) cho các lời khuyên
-- Khoảng 3-4 dòng
+      **3.: Lời khuyên:**
+      - Đưa ra lời khuyên cụ thể dựa trên kết quả
+      - Sử dụng gạch đầu dòng (-) cho các lời khuyên
+      - Khoảng 3-4 dòng
 
-**Kết luận:**
-- Tóm tắt và triển vọng, nếu là câu hỏi yes, no question, thì trả lời là yes hoặc no, chắc chắn về đáp án, không chung chung
-- Khoảng 3-4 dòng
+      **Kết luận:**
+      - Tóm tắt và triển vọng, nếu là câu hỏi yes, no question, thì trả lời là yes hoặc no, chắc chắn về đáp án, không chung chung
+      - Khoảng 3-4 dòng
 
-**Bói toán bởi**
-_Hệ thống AI tiên tri Tarot của vhn_
-Hãy viết ngắn gọn, súc tích, có xuống dòng ở các đầu mục, sử dụng markdown để làm nổi bật các phần quan trọng.`;
+      **Bói toán bởi**
+      _Hệ thống AI tiên tri Tarot của vhn_
+      Hãy viết ngắn gọn, súc tích, có xuống dòng ở các đầu mục, sử dụng markdown để làm nổi bật các phần quan trọng.`;
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    // const result = await model.generateContent(prompt);
+    // const response = await result.response;
+    // const text = response.text();
+    const result = await client.models.generateContent({
+      model: modelName,
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    });
+    const text = result.text; // Lấy text trực tiếp, không cần await result.response
 
     if (!text || text.trim().length === 0) {
-      return res.status(500).json({ 
-        error: 'Failed to generate analysis', 
-        details: 'Empty response from Gemini API' 
+      return res.status(500).json({
+        error: 'Failed to generate analysis',
+        details: 'Empty response from Gemini API'
       });
     }
 
@@ -166,12 +174,12 @@ Hãy viết ngắn gọn, súc tích, có xuống dòng ở các đầu mục, s
   } catch (error) {
     console.error('Gemini API error:', error);
     console.error('Error stack:', error.stack);
-    
+
     // Check for quota/resource exhaustion errors
     const errorMessage = error.message || '';
     const errorString = errorMessage.toLowerCase();
     const errorCode = error.code || error.status || '';
-    
+
     // Check for quota exceeded errors
     if (
       errorString.includes('quota') ||
@@ -182,7 +190,7 @@ Hãy viết ngắn gọn, súc tích, có xuống dòng ở các đầu mục, s
       errorCode === 'RESOURCE_EXHAUSTED' ||
       errorCode === 8 // gRPC code for RESOURCE_EXHAUSTED
     ) {
-      return res.status(503).json({ 
+      return res.status(503).json({
         error: 'Service temporarily unavailable',
         message: 'The AI service has reached its quota limit. Please try again later.',
         details: 'Quota exceeded for Gemini API',
@@ -190,7 +198,7 @@ Hãy viết ngắn gọn, súc tích, có xuống dòng ở các đầu mục, s
         retryAfter: 3600 // Suggest retry after 1 hour
       });
     }
-    
+
     // Check for service unavailable errors
     if (
       errorString.includes('service unavailable') ||
@@ -198,27 +206,27 @@ Hãy viết ngắn gọn, súc tích, có xuống dòng ở các đầu mục, s
       errorCode === 503 ||
       errorCode === 'UNAVAILABLE'
     ) {
-      return res.status(503).json({ 
+      return res.status(503).json({
         error: 'Service temporarily unavailable',
         message: 'The AI service is currently unavailable. Please try again later.',
         details: errorMessage,
         type: 'ServiceUnavailable'
       });
     }
-    
+
     // Extract more detailed error information for other errors
     let errorMessageFinal = 'Failed to generate analysis';
     let errorDetails = error.message || 'Unknown error';
-    
+
     if (error.message) {
       errorDetails = error.message;
     }
     if (error.cause) {
       errorDetails += ` - Cause: ${error.cause}`;
     }
-    
-    return res.status(500).json({ 
-      error: errorMessageFinal, 
+
+    return res.status(500).json({
+      error: errorMessageFinal,
       details: errorDetails,
       type: error.name || 'Error'
     });
