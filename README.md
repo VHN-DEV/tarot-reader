@@ -362,6 +362,7 @@ Returns the hCaptcha site key for client-side integration (production only).
 Required environment variables:
 
 - `GEMINI_API_KEY`: Your Google Gemini API key
+- `GEMINI_MODEL`: Your Google Gemini model
 - `HCAPTCHA_SITE_KEY`: Your hCaptcha site key (production only)
 - `HCAPTCHA_SECRET`: Your hCaptcha secret key (production only)
 - `ALLOWED_ORIGINS`: Comma-separated list of allowed origins for the Gemini API endpoint (production only). Example: `https://yourdomain.com,https://www.yourdomain.com`
