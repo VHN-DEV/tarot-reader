@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export', // BẮT BUỘC để tạo thư mục /out cho GitHub Pages
   images: {
-    domains: [],
-    unoptimized: true, // For static export or if you want to disable optimization
+    unoptimized: true,
   },
+  // Nếu repo của bạn có tên (ví dụ: /tarot-reader), hãy thêm dòng dưới:
+  // basePath: '/tarot-reader', 
 }
 
 module.exports = nextConfig
-
