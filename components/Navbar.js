@@ -30,6 +30,7 @@ const navStructure = [
     items: [
       { label: 'API Docs', href: '/api-docs', key: 'api-docs', icon: '✦' },
       { label: 'About', href: '/about', key: 'about', icon: '✦' },
+      { label: 'Quản lý bộ bài', href: '/deck-manager', key: 'deck-manager', icon: '✦' },
     ]
   }
 ];
@@ -135,6 +136,7 @@ export default function AppNavbar() {
       case 'quotes': return 'Thông điệp truyền cảm hứng mỗi ngày';
       case 'api-docs': return 'Tài liệu tích hợp API Tarot Reader';
       case 'about': return 'Về dự án và tác giả';
+      case 'deck-manager': return 'Chọn và thay đổi bộ bài mặc định';
       default: return '';
     }
   };

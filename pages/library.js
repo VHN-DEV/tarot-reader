@@ -5,6 +5,7 @@ import Image from 'next/image';
 import AppNavbar from '../components/Navbar';
 import Metadata from '../components/Metadata';
 import Footer from '../components/Footer';
+import { getCurrentDeck } from '../data/tarotCards';
 
 export default function Library() {
   const router = useRouter();
@@ -16,16 +17,17 @@ export default function Library() {
   const CARDS_PER_PAGE = 24;
 
   useEffect(() => {
-    fetch('/api/cards')
-      .then(res => res.json())
-      .then(data => {
-        setCards(data);
-        setLoading(false);
-      })
-      .catch(err => {
+    async function fetchCards() {
+      try {
+        const deck = await getCurrentDeck();
+        setCards(deck);
+      } catch (err) {
         console.error('Error fetching cards:', err);
+      } finally {
         setLoading(false);
-      });
+      }
+    }
+    fetchCards();
   }, []);
 
   const filteredCards = cards.filter(card =>

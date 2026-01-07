@@ -1,9 +1,10 @@
-import { tarotCards } from '../../../data/tarotCards';
+import { getCurrentDeck } from '../../../data/tarotCards';
 
 export default function handler(req, res) {
   if (req.method === 'GET') {
-    const randomIndex = Math.floor(Math.random() * tarotCards.length);
-    const randomCard = tarotCards[randomIndex];
+    const deck = getCurrentDeck();
+    const randomIndex = Math.floor(Math.random() * deck.length);
+    const randomCard = deck[randomIndex];
     res.status(200).json(randomCard);
   } else {
     res.setHeader('Allow', ['GET']);
