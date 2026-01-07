@@ -139,7 +139,7 @@ export default function DeckManager() {
                       <span className="text-[#d4a052] font-bold">Mặc định</span>
                     ) : (
                       <button
-                        className="px-3 py-1 bg-[#d4a052] text-white rounded hover:bg-[#bfa14a] text-sm font-semibold"
+                        className="px-3 py-1 bg-[#d4a052] text-white rounded hover:bg-[#bfa14a] text-sm font-semibold cursor-pointer"
                         onClick={() => handleSetDefault(deck)}
                         disabled={loading}
                       >
@@ -148,11 +148,11 @@ export default function DeckManager() {
                     )}
                   </td>
                   <td className="px-4 py-2 text-center">
-                    {deck === selected ? (
+                    {deck === selected || deck === 'classic' ? (
                       <span className="text-gray-400 italic text-sm">Không thể xóa</span>
                     ) : (
                       <button
-                        className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm font-semibold"
+                        className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm font-semibold cursor-pointer"
                         onClick={() => handleDeleteDeck(deck)}
                         disabled={loading}
                       >
@@ -169,7 +169,7 @@ export default function DeckManager() {
         <div className="flex flex-col gap-3 items-center mt-8">
           <div className="flex gap-4">
             <button
-              className="px-4 py-2 bg-[#d4a052] text-white rounded font-semibold hover:bg-[#bfa14a]"
+              className="px-4 py-2 bg-[#d4a052] text-white rounded font-semibold hover:bg-[#bfa14a] cursor-pointer"
               onClick={handleDownloadTemplate}
               disabled={loading}
             >
