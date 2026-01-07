@@ -390,26 +390,6 @@ const tarotDecks = {
         "image": "/tarotdeck/kingofwands.jpeg"
       }
     ]
-  },
-  "demo": {
-    "name": "Bộ bài demo",
-    "cards": [
-      {
-        "name": "Demo Fool",
-        "description": "Lá bài demo này tượng trưng cho sự khởi đầu mới và tinh thần khám phá.",
-        "image": "/tarotdeck/thefool.jpeg"
-      },
-      {
-        "name": "Demo Magician",
-        "description": "Lá bài demo này đại diện cho sự sáng tạo và khả năng biến ý tưởng thành hiện thực.",
-        "image": "/tarotdeck/themagician.jpeg"
-      },
-      {
-        "name": "Demo Empress",
-        "description": "Lá bài demo này tượng trưng cho sự phát triển và thịnh vượng.",
-        "image": "/tarotdeck/theempress.jpeg"
-      }
-    ]
   }
 };
 
