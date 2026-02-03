@@ -50,6 +50,11 @@ const tarotDecks = {
         "image": "/tarotdeck/thestrength.jpeg"
       },
       {
+        "name": "The Hermit",
+        "description": "The Hermit cho thấy rằng bạn có thể làm điều gì đó để đạt được kết quả tốt nhất. Lá bài cho thấy rằng bạn có thể đạt được thành công bằng cách làm việc độc lập, không ảnh hưởng đến người khác.\n\nNó khuyến khích bạn làm việc độc lập và không ảnh hưởng đến người khác.",
+        "image": "/tarotdeck/thehermit.jpeg"
+      },
+      {
         "name": "Wheel of Fortune",
         "description": "Wheel of Fortune tượng trưng cho sự thay đổi, chu kỳ và yếu tố may mắn. Lá bài cho thấy tình huống của bạn có thể biến chuyển bất ngờ — cả theo hướng tốt lẫn xấu.\n\nNó khuyến khích bạn linh hoạt, nắm bắt cơ hội và chấp nhận rằng không điều gì đứng yên mãi mãi. Tác động bên ngoài cũng đóng vai trò quan trọng trong kết quả.",
         "image": "/tarotdeck/wheeloffortune.jpeg"
