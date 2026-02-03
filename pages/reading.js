@@ -7,6 +7,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import AppNavbar from '../components/Navbar';
 import Metadata from '../components/Metadata';
 import Footer from '../components/Footer';
+import { getCurrentDeck } from '../data/tarotCards';
 
 const DISPLAY_CARD_COUNT = 12;
 
@@ -51,14 +52,22 @@ export default function Reading() {
 
   useEffect(() => {
     const fetchCards = async () => {
+      setIsLoadingCards(true);
       try {
-        const res = await fetch('/api/cards');
-        const data = await res.json();
-        setAllCards(data);
-        setDeck(shuffle(data).slice(0, DISPLAY_CARD_COUNT));
+        const data = await getCurrentDeck();
+        if (!data || !Array.isArray(data) || data.length === 0) {
+          alert('Không thể tải dữ liệu lá bài.');
+          setAllCards([]);
+          setDeck([]);
+        } else {
+          setAllCards(data);
+          setDeck(shuffle(data).slice(0, DISPLAY_CARD_COUNT));
+        }
       } catch (error) {
         console.error(error);
         alert('Không thể tải dữ liệu lá bài.');
+        setAllCards([]);
+        setDeck([]);
       } finally {
         setIsLoadingCards(false);
       }
