@@ -505,7 +505,7 @@ const tarotDecks = {
             "actions": "Không nên vội vàng; cần suy nghĩ thấu đáo và lập kế hoạch chắc chắn."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-fool-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-fool.jpeg"
       },
       {
         "id": 1,
@@ -531,7 +531,7 @@ const tarotDecks = {
             "actions": "Cần xem xét lại mục tiêu; tránh các hành động mang tính lừa dối hoặc thiếu minh bạch."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-magician-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-magician.jpeg"
       },
       {
         "id": 2,
@@ -557,7 +557,7 @@ const tarotDecks = {
             "actions": "Cần tìm lại sự tĩnh lặng để hiểu rõ vấn đề trước khi bước tiếp."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-high-priestess-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-high-priestess.jpeg"
       },
       {
         "id": 3,
@@ -583,7 +583,7 @@ const tarotDecks = {
             "actions": "Hãy học cách yêu thương bản thân trước khi lo lắng cho người khác."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-empress-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-empress.jpeg"
       },
       {
         "id": 4,
@@ -609,7 +609,7 @@ const tarotDecks = {
             "actions": "Cần nới lỏng sự kiểm soát và lắng nghe ý kiến của người khác."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-emperor-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-emperor.jpeg"
       },
       {
         "id": 5,
@@ -635,7 +635,7 @@ const tarotDecks = {
             "actions": "Hãy dũng cảm thay đổi nếu những giá trị cũ không còn phù hợp."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-hierophant-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-hierophant.jpeg"
       },
       {
         "id": 6,
@@ -661,7 +661,7 @@ const tarotDecks = {
             "actions": "Cần xem xét lại các ưu tiên và hàn gắn các mối quan hệ bị rạn nứt."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-lovers-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-lovers.jpeg"
       },
       {
         "id": 7,
@@ -687,7 +687,7 @@ const tarotDecks = {
             "actions": "Hãy dừng lại để điều chỉnh hướng đi thay vì cứ cố lao về phía trước."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-chariot-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-chariot.jpeg"
       },
       {
         "id": 8,
@@ -713,7 +713,7 @@ const tarotDecks = {
             "actions": "Cần học cách đối mặt với nỗi sợ và tìm lại niềm tin vào bản thân."
           }
         },
-        "image": "/tarotdeck/majorarcana/strength-meaning.png"
+        "image": "/tarotdeck/majorarcana/strength.jpeg"
       },
       {
         "id": 9,
@@ -739,7 +739,7 @@ const tarotDecks = {
             "actions": "Cần mở lòng hơn và quay trở lại kết nối với thế giới xung quanh."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-hermit-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-hermit.jpeg"
       },
       {
         "id": 10,
@@ -765,7 +765,7 @@ const tarotDecks = {
             "actions": "Đừng cố cưỡng lại thực tế; hãy kiên nhẫn chờ đợi vòng quay đi qua giai đoạn này."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-wheel-of-fortune-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-wheel-of-fortune.jpeg"
       },
       {
         "id": 11,
@@ -791,7 +791,7 @@ const tarotDecks = {
             "actions": "Cần trung thực với bản thân và sửa chữa những sai lầm đã gây ra."
           }
         },
-        "image": "/tarotdeck/majorarcana/justice-meaning.png"
+        "image": "/tarotdeck/majorarcana/justice.jpeg"
       },
       {
         "id": 12,
@@ -817,7 +817,7 @@ const tarotDecks = {
             "actions": "Cần quyết đoán hơn hoặc thay đổi thái độ thay vì chỉ than vãn."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-hanged-man-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-hanged-man.jpeg"
       },
       {
         "id": 13,
@@ -843,7 +843,7 @@ const tarotDecks = {
             "actions": "Cần học cách chấp nhận rằng cái cũ phải ra đi để cái mới có chỗ đứng."
           }
         },
-        "image": "/tarotdeck/majorarcana/death-meaning.png"
+        "image": "/tarotdeck/majorarcana/death.jpeg"
       },
       {
         "id": 14,
@@ -869,7 +869,7 @@ const tarotDecks = {
             "actions": "Cần điều chỉnh lại lối sống và tìm lại sự cân bằng nội tâm."
           }
         },
-        "image": "/tarotdeck/majorarcana/temperance-meaning.png"
+        "image": "/tarotdeck/majorarcana/temperance.jpeg"
       },
       {
         "id": 15,
@@ -895,7 +895,7 @@ const tarotDecks = {
             "actions": "Hãy mạnh dạn cắt đứt những sợi xích đang kìm hãm sự phát triển của bạn."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-devil-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-devil.jpeg"
       },
       {
         "id": 16,
@@ -921,7 +921,7 @@ const tarotDecks = {
             "actions": "Đừng cố cứu vãn những gì đã hư hỏng; hãy chuẩn bị tinh thần cho sự chuyển đổi."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-tower-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-tower.jpeg"
       },
       {
         "id": 17,
@@ -947,7 +947,7 @@ const tarotDecks = {
             "actions": "Cần tìm lại sự kết nối với tâm hồn và học cách trân trọng những gì mình đang có."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-star-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-star.jpeg"
       },
       {
         "id": 18,
@@ -973,7 +973,7 @@ const tarotDecks = {
             "actions": "Hãy tận dụng sự sáng tỏ này để giải quyết các vấn đề còn tồn đọng."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-moon-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-moon.jpeg"
       },
       {
         "id": 19,
@@ -999,7 +999,7 @@ const tarotDecks = {
             "actions": "Cần lấy lại tinh thần lạc quan và tập trung vào những điều tốt đẹp."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-sun-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-sun.jpeg"
       },
       {
         "id": 20,
@@ -1025,7 +1025,7 @@ const tarotDecks = {
             "actions": "Cần trung thực với bản thân và học cách tha thứ cho chính mình để tiến lên."
           }
         },
-        "image": "/tarotdeck/majorarcana/judgement-meaning.png"
+        "image": "/tarotdeck/majorarcana/judgement.jpeg"
       },
       {
         "id": 21,
@@ -1051,7 +1051,7 @@ const tarotDecks = {
             "actions": "Cần xem xét lại những gì còn dang dở và nỗ lực hơn nữa để hoàn tất chu kỳ."
           }
         },
-        "image": "/tarotdeck/majorarcana/the-world-meaning.png"
+        "image": "/tarotdeck/majorarcana/the-world.jpeg"
       }
     ]
   }
