@@ -112,9 +112,37 @@ export default async function handler(req, res) {
     const client = new GoogleGenAI({ apiKey: apiKey });
     const modelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
-    const cardDescriptions = cards.map((card, index) => {
+    let cardDescriptions = cards.map((card, index) => {
       const positions = ['Quá khứ', 'Hiện tại', 'Tương lai'];
       return `Thẻ ${positions[index]} - ${card.name}: ${card.description}`;
+    }).join('\n\n');
+
+    cardDescriptions = cards.map((card, index) => {
+      const positions = ['Quá khứ', 'Hiện tại', 'Tương lai'];
+      const isReversed = !!card.isReversed;
+      const orientationKey = isReversed ? 'reversed' : 'upright';
+      const orientationLabel = isReversed ? 'Đảo' : 'Xuôi';
+      const keywords = isReversed ? card.reversed_keywords : card.upright_keywords;
+      const meanings = card.meanings?.[orientationKey];
+      const meaningLines = meanings
+        ? [
+            meanings.general && `Tổng quan: ${meanings.general}`,
+            meanings.love && `Tình yêu: ${meanings.love}`,
+            meanings.career && `Sự nghiệp: ${meanings.career}`,
+            meanings.finances && `Tài chính: ${meanings.finances}`,
+            meanings.feelings && `Cảm xúc: ${meanings.feelings}`,
+            meanings.actions && `Hành động: ${meanings.actions}`,
+          ].filter(Boolean)
+        : [];
+      const keywordText =
+        Array.isArray(keywords) && keywords.length
+          ? `Từ khóa (${orientationLabel}): ${keywords.join(', ')}`
+          : '';
+      const meaningText = meaningLines.length
+        ? meaningLines.join('\n')
+        : (card.description || '');
+
+      return `Thẻ ${positions[index]} - ${card.name} (${orientationLabel}):\n${keywordText}${keywordText && meaningText ? '\n' : ''}${meaningText}`;
     }).join('\n\n');
 
     const prompt = `Bạn là một thầy bói Tarot chuyên nghiệp. Hãy phân tích câu hỏi của người dùng dựa trên 3 lá bài Tarot được rút ra.

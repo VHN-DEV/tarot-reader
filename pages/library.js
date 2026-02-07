@@ -16,6 +16,79 @@ export default function Library() {
   const [currentPage, setCurrentPage] = useState(1);
   const CARDS_PER_PAGE = 24;
 
+  const renderKeywords = (keywords) => {
+    if (!Array.isArray(keywords) || keywords.length === 0) return null;
+    return (
+      <div className="flex flex-wrap gap-2">
+        {keywords.map((word, idx) => (
+          <span
+            key={`${word}-${idx}`}
+            className="px-3 py-1 rounded-full bg-white/10 text-white/90 text-xs sm:text-sm"
+          >
+            {word}
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  const renderMeanings = (meanings) => {
+    if (!meanings) return null;
+    const items = [
+      { label: 'Tổng quan', value: meanings.general },
+      { label: 'Tình yêu', value: meanings.love },
+      { label: 'Sự nghiệp', value: meanings.career },
+      { label: 'Tài chính', value: meanings.finances },
+      { label: 'Cảm xúc', value: meanings.feelings },
+      { label: 'Hành động', value: meanings.actions },
+    ].filter((item) => item.value);
+
+    if (items.length === 0) return null;
+
+    return (
+      <div className="space-y-4">
+        {items.map((item) => (
+          <div key={item.label}>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#c08b45] mb-1">
+              {item.label}
+            </div>
+            <p className="text-white/85 leading-relaxed">{item.value}</p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const renderOrientationSection = (title, keywords, meanings) => {
+    const hasKeywords = Array.isArray(keywords) && keywords.length > 0;
+    const hasMeanings = meanings && Object.values(meanings).some(Boolean);
+    if (!hasKeywords && !hasMeanings) return null;
+
+    return (
+      <div className="space-y-4">
+        <h3 className="text-sm uppercase tracking-[0.35em] text-[#c08b45] mb-2">
+          {title}
+        </h3>
+        {hasKeywords ? (
+          <div>
+            <div className="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">
+              Từ khóa
+            </div>
+            {renderKeywords(keywords)}
+          </div>
+        ) : null}
+        {hasMeanings ? (
+          <div>
+            <div className="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">
+              Ý nghĩa
+            </div>
+            {renderMeanings(meanings)}
+          </div>
+        ) : null}
+      </div>
+    );
+  };
+
   useEffect(() => {
     async function fetchCards() {
       try {
@@ -242,7 +315,10 @@ export default function Library() {
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
                   {/* Image Section */}
                   <div className="flex-shrink-0 lg:w-1/2 flex justify-center lg:justify-start">
-                    <div className="relative w-full max-w-[350px] rounded-2xl overflow-hidden border border-[#2f2620] shadow-[0_25px_70px_rgba(0,0,0,0.45)] bg-[#0f0e0d]" style={{ aspectRatio: '3 / 5' }}>
+                    <div
+                      className="relative w-full max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden border border-[#2f2620] shadow-[0_25px_70px_rgba(0,0,0,0.45)] bg-[#0f0e0d]"
+                      style={{ aspectRatio: '3 / 5' }}
+                    >
                       <Image
                         src={selectedCard.image}
                         alt={selectedCard.name}
@@ -255,13 +331,32 @@ export default function Library() {
                   
                   {/* Description Section */}
                   <div className="flex-1 lg:w-1/2 lg:pt-2 flex flex-col">
-                    <div className="text-white/90 leading-relaxed whitespace-pre-line break-words text-base sm:text-lg font-light space-y-4 mb-6">
-                      {selectedCard.description.split('\n\n').map((paragraph, index) => (
-                        <p key={index} className="mb-4 last:mb-0">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
+                    {selectedCard.description && (
+                      <div className="text-white/90 leading-relaxed whitespace-pre-line break-words text-base sm:text-lg font-light space-y-4 mb-6">
+                        {selectedCard.description.split('\n\n').map((paragraph, index) => (
+                          <p key={index} className="mb-4 last:mb-0">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+
+                    {(selectedCard.upright_keywords ||
+                      selectedCard.reversed_keywords ||
+                      selectedCard.meanings) && (
+                      <div className="mt-2 mb-6 space-y-8">
+                        {renderOrientationSection(
+                          'Xuôi',
+                          selectedCard.upright_keywords,
+                          selectedCard.meanings?.upright
+                        )}
+                        {renderOrientationSection(
+                          'Đảo',
+                          selectedCard.reversed_keywords,
+                          selectedCard.meanings?.reversed
+                        )}
+                      </div>
+                    )}
                     
                     <div className="mt-4">
                       <Button

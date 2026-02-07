@@ -34,6 +34,7 @@ export default function Reading() {
   const [deck, setDeck] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [revealedIndices, setRevealedIndices] = useState([]);
+  const [revealedMeta, setRevealedMeta] = useState({});
   const [question, setQuestion] = useState('');
   const [analysis, setAnalysis] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -129,6 +130,7 @@ export default function Reading() {
     setDeck(shuffle(allCards).slice(0, DISPLAY_CARD_COUNT));
     setSelectedCards([]);
     setRevealedIndices([]);
+    setRevealedMeta({});
     setQuestion('');
     setAnalysis('');
   };
@@ -138,9 +140,17 @@ export default function Reading() {
     if (revealedIndices.includes(index)) return;
     if (selectedCards.length >= 3) return;
 
+    const isReversed = Math.random() < 0.5;
     const updatedRevealed = [...revealedIndices, index];
-    const updatedSelected = [...selectedCards, deck[index]];
+    const updatedSelected = [
+      ...selectedCards,
+      {
+        ...deck[index],
+        isReversed,
+      }
+    ];
     setRevealedIndices(updatedRevealed);
+    setRevealedMeta((prev) => ({ ...prev, [index]: { isReversed } }));
     setSelectedCards(updatedSelected);
   };
 
@@ -351,6 +361,56 @@ export default function Reading() {
     }
   };
 
+  const selectedOrientationKey = selectedCard?.isReversed ? 'reversed' : 'upright';
+  const selectedOrientationLabel = selectedCard?.isReversed ? 'Đảo' : 'Xuôi';
+  const selectedKeywords = selectedCard
+    ? (selectedCard.isReversed ? selectedCard.reversed_keywords : selectedCard.upright_keywords)
+    : null;
+  const selectedMeanings = selectedCard?.meanings?.[selectedOrientationKey];
+
+  const renderKeywords = (keywords) => {
+    if (!Array.isArray(keywords) || keywords.length === 0) return null;
+    return (
+      <div className="flex flex-wrap gap-2">
+        {keywords.map((word, idx) => (
+          <span
+            key={`${word}-${idx}`}
+            className="px-3 py-1 rounded-full bg-white/10 text-white/90 text-xs sm:text-sm"
+          >
+            {word}
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  const renderMeanings = (meanings) => {
+    if (!meanings) return null;
+    const items = [
+      { label: 'Tổng quan', value: meanings.general },
+      { label: 'Tình yêu', value: meanings.love },
+      { label: 'Sự nghiệp', value: meanings.career },
+      { label: 'Tài chính', value: meanings.finances },
+      { label: 'Cảm xúc', value: meanings.feelings },
+      { label: 'Hành động', value: meanings.actions },
+    ].filter((item) => item.value);
+
+    if (items.length === 0) return null;
+
+    return (
+      <div className="space-y-4">
+        {items.map((item) => (
+          <div key={item.label}>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#c08b45] mb-1">
+              {item.label}
+            </div>
+            <p className="text-white/85 leading-relaxed">{item.value}</p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <>
       <Metadata 
@@ -494,6 +554,7 @@ export default function Reading() {
                 >
                   {deck.map((card, index) => {
                     const flipped = revealedIndices.includes(index);
+                    const isReversed = !!revealedMeta[index]?.isReversed;
                     const disabled = flipped || selectedCards.length >= 3 || isSubmitting;
                     return (
                       <button
@@ -532,7 +593,7 @@ export default function Reading() {
                                 src={card.image} 
                                 alt={card.name} 
                                 fill
-                                className="object-cover"
+                                className={`object-cover transition-transform duration-500 ${isReversed ? 'rotate-180' : ''}`}
                                 sizes="110px"
                               />
                             </div>
@@ -560,11 +621,14 @@ export default function Reading() {
                       src={card.image} 
                       alt={card.name} 
                       fill
-                      className="object-cover"
+                      className={`object-cover transition-transform duration-500 ${card.isReversed ? 'rotate-180' : ''}`}
                       sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, 256px"
                     />
                   </div>
                     <p className="text-center text-white text-base sm:text-lg font-semibold">{card.name}</p>
+                    <p className="text-center text-white/70 text-sm mt-1">
+                      {card.isReversed ? 'Đảo' : 'Xuôi'}
+                    </p>
                 </div>
               ))}
             </div>
@@ -686,6 +750,11 @@ export default function Reading() {
                 <span className="text-xs uppercase tracking-[0.35em] text-[#c08b45] bg-white/10 px-3 py-1 rounded-full">
                   {selectedCard.name}
                 </span>
+                {typeof selectedCard.isReversed === 'boolean' && (
+                  <span className="ml-2 text-xs uppercase tracking-[0.35em] text-white/80 bg-white/10 px-3 py-1 rounded-full">
+                    {selectedOrientationLabel}
+                  </span>
+                )}
               </div>
               <button
                 onClick={() => setSelectedCard(null)}
@@ -702,7 +771,10 @@ export default function Reading() {
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
                   {/* Image Section */}
                   <div className="flex-shrink-0 lg:w-1/2 flex justify-center lg:justify-start">
-                    <div className="relative w-full max-w-[350px] rounded-2xl overflow-hidden border border-[#2f2620] shadow-[0_25px_70px_rgba(0,0,0,0.45)] bg-[#0f0e0d]" style={{ aspectRatio: '3 / 5' }}>
+                    <div
+                      className="relative w-full max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden border border-[#2f2620] shadow-[0_25px_70px_rgba(0,0,0,0.45)] bg-[#0f0e0d]"
+                      style={{ aspectRatio: '3 / 5' }}
+                    >
                       <Image
                         src={selectedCard.image}
                         alt={selectedCard.name}
@@ -715,13 +787,36 @@ export default function Reading() {
                   
                   {/* Description Section */}
                   <div className="flex-1 lg:w-1/2 lg:pt-2 flex flex-col">
-                    <div className="text-white/90 leading-relaxed whitespace-pre-line break-words text-base sm:text-lg font-light space-y-4 mb-6">
-                      {selectedCard.description.split('\n\n').map((paragraph, index) => (
-                        <p key={index} className="mb-4 last:mb-0">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
+                    {selectedCard.description && (
+                      <div className="text-white/90 leading-relaxed whitespace-pre-line break-words text-base sm:text-lg font-light space-y-4 mb-6">
+                        {selectedCard.description.split('\n\n').map((paragraph, index) => (
+                          <p key={index} className="mb-4 last:mb-0">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+
+                    {(selectedKeywords?.length || selectedMeanings) && (
+                      <div className="mt-2 mb-6 space-y-6">
+                        {selectedKeywords?.length ? (
+                          <div>
+                            <h3 className="text-sm uppercase tracking-[0.35em] text-[#c08b45] mb-3">
+                              Từ khóa ({selectedOrientationLabel})
+                            </h3>
+                            {renderKeywords(selectedKeywords)}
+                          </div>
+                        ) : null}
+                        {selectedMeanings ? (
+                          <div>
+                            <h3 className="text-sm uppercase tracking-[0.35em] text-[#c08b45] mb-3">
+                              Ý nghĩa ({selectedOrientationLabel})
+                            </h3>
+                            {renderMeanings(selectedMeanings)}
+                          </div>
+                        ) : null}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
